@@ -1,0 +1,150 @@
+.footer {
+  width: 100%;
+  height: 264px;
+  background: #000000;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  box-sizing: border-box;
+  padding: 24px 20px 32px;
+}
+
+.topRow {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  height: 24px;
+  width: auto;
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.link {
+  font-family: "Helvetica Now Display", "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.toTop {
+  width: 48px;
+  height: 48px;
+  border: 1px dashed #ffffff;
+  border-radius: 50%;
+  background: transparent;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.toTopArrow {
+  font-size: 20px;
+  transform: rotate(0deg);
+}
+
+.divider {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 2px;
+  background: #3a3a3a;
+}
+
+.bottomRow {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.socialIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socialIcon img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.copy {
+  font-family: "Helvetica Neue", "Helvetica Now Display", "Montserrat", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #c7c7c7;
+  padding-left: 8px;
+}
+
+@media (max-width: 900px) {
+  .footer {
+    height: auto;
+  }
+
+  .topRow {
+    grid-template-columns: 1fr auto;
+    justify-items: flex-start;
+    row-gap: 12px;
+  }
+
+  .links {
+    gap: 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    grid-column: 1;
+    margin-top: 30px;
+  }
+
+  .toTop {
+    grid-column: 2;
+    justify-self: end;
+  }
+
+  .bottomRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .copy {
+    padding-left: 0;
+  }
+}

@@ -1,0 +1,247 @@
+.formSection {
+  position: relative;
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin: 0;
+  height: 720px;
+  min-height: 720px;
+  background-color: #000000;
+  background-image: url("../../assets/formbg.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #ffffff;
+  isolation: isolate;
+}
+
+.formOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+  z-index: 0;
+}
+
+.formContent {
+  width: 100%;
+  max-width: 1280px;
+  padding: 80px 20px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.formTitle {
+  margin: 0;
+  font-family: "Pressio", "Anton", "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 88px;
+  line-height: 89px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  max-width: 460px;
+}
+
+.formBox {
+  background: rgba(0, 0, 0, 0.82);
+  padding: 32px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.formHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.formHeading {
+  margin: 0;
+  font-family: "Pressio", "Anton", "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 38px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.formDivider {
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.32);
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: "Helvetica Now Display", "Montserrat", sans-serif;
+  color: #ffffff;
+}
+
+.fieldLabel {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  opacity: 0.7;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.required {
+  color: #ff4d4f;
+}
+
+.fieldInput {
+  width: 100%;
+  height: 80px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  padding: 20px 16px;
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "Helvetica Now Display", "Montserrat", sans-serif;
+}
+
+.fieldInput::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.selectFake {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.selectIcon {
+  width: 24px;
+  height: 24px;
+  opacity: 0.8;
+}
+
+.formFooter {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.formNote {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "Helvetica Now Display", "Montserrat", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #ffffff;
+}
+
+.checkmark {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  display: inline-block;
+  position: relative;
+}
+
+.checkmark::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 7px;
+  width: 6px;
+  height: 12px;
+  border: solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.submitButton {
+  width: 160px;
+  height: 48px;
+  border: 2px solid #ffffff;
+  background: transparent;
+  color: #ffffff;
+  font-family: "Helvetica Now Display", "Montserrat", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+@media (max-width: 1100px) {
+  .formContent {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .formTitle {
+    max-width: none;
+    font-size: 72px;
+    line-height: 74px;
+  }
+}
+
+@media (max-width: 768px) {
+  .formSection {
+    min-height: 1122px;
+    height: auto;
+  }
+
+  .formContent {
+    padding: 56px 20px 72px;
+    gap: 16px;
+    grid-template-columns: 1fr;
+  }
+
+  .formTitle {
+    font-size: 48px;
+    line-height: 52px;
+    max-width: 100%;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .formFooter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .submitButton {
+    width: 100%;
+  }
+}

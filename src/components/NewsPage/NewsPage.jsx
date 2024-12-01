@@ -1,6 +1,7 @@
-import styles from "./NewsPage.module.css";
 import { useNavigate } from "react-router-dom";
+import styles from "./NewsPage.module.css";
 import Header from "../Header/Header";
+import UnderlineButton from "../UnderlineButton/UnderlineButton";
 import arrowIcon from "../../assets/arrow-right.svg";
 import newsImage1 from "../../assets/news1.jpg";
 import newsImage2 from "../../assets/news2.jpg";
@@ -27,22 +28,25 @@ const newsItems = [
   },
 ];
 
-export default function NewsPage() {
+export default function NewsPage({ showHeader = true }) {
   const navigate = useNavigate();
+  const pageClassName = `${styles.page} ${!showHeader ? styles.pageEmbedded : ""}`;
+  const contentClassName = `${styles.content} ${
+    !showHeader ? styles.contentEmbedded : ""
+  }`;
+  const headingClassName = `${styles.heading} ${
+    !showHeader ? styles.headingEmbedded : ""
+  }`;
 
   return (
-    <div className={styles.page}>
-      <Header />
+    <div className={pageClassName}>
+      {showHeader && <Header />}
 
-      <main className={styles.content}>
+      <main className={contentClassName}>
         <div className={styles.headerRow}>
-          <h1 className={styles.heading}>News</h1>
-
+          <h1 className={headingClassName}>News</h1>
           <div className={styles.actions}>
-            <button type="button" className={styles.primaryButton}>
-              <span className={styles.primaryButtonLabel}>daha Ətraflı</span>
-              <span className={styles.primaryButtonUnderline} aria-hidden />
-            </button>
+            <UnderlineButton label="daha Ətraflı" />
           </div>
         </div>
 
@@ -74,6 +78,12 @@ export default function NewsPage() {
               </button>
             </article>
           ))}
+        </div>
+
+        <div className={styles.mobileActions}>
+          <button type="button" className={styles.moreButton}>
+            Daha çox
+          </button>
         </div>
       </main>
     </div>

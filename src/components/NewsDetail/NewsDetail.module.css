@@ -9,7 +9,7 @@
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 72px 20px 120px;
+  padding: 72px 20px 0;
   box-sizing: border-box;
 }
 
@@ -116,6 +116,12 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
 }
 
+.controlButton:disabled {
+  opacity: 0.6;
+  cursor: default;
+  box-shadow: none;
+}
+
 .controlIcon {
   width: 24px;
   height: 24px;
@@ -125,6 +131,116 @@
   width: 24px;
   height: 24px;
   transform: rotate(180deg);
+}
+
+.fakeVideoSection {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  background: #e8eaef;
+  padding: 80px 0;
+  margin-top: 80px;
+  margin-bottom: 64px;
+}
+
+.fakeVideoContent {
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 80px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 843fr 405fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.fakeVideoMedia {
+  position: relative;
+  width: 100%;
+  max-width: 843px;
+  height: 480px;
+}
+
+.fakeVideoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.fakeVideoTime {
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  width: calc(100% - 6px);
+  height: auto;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+}
+
+.fakeVideoInfo {
+  max-width: 405px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  justify-self: end;
+}
+
+.fakeVideoCategory {
+  font-family: "Helvetica Now Display", "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 24px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #858585;
+  text-align: center;
+}
+
+.fakeVideoTitle {
+  margin: 0;
+  font-family: "Pressio", "Anton", "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 40px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #000000;
+}
+
+.fightFrame {
+  width: 231px;
+  max-width: 100%;
+  height: 80px;
+  background: #000000;
+  padding: 16px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  box-sizing: border-box;
+}
+
+.fightNames {
+  background: transparent;
+  color: #44ff15;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Pressio", "Anton", "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 36px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 @media (max-width: 900px) {
@@ -143,6 +259,26 @@
 
   .body {
     max-width: 100%;
+  }
+
+  .fakeVideoContent {
+    grid-template-columns: 1fr;
+    padding: 0 32px;
+    row-gap: 32px;
+    justify-items: center;
+  }
+
+  .fakeVideoMedia {
+    max-width: 100%;
+  }
+
+  .fakeVideoInfo {
+    justify-self: center;
+  }
+
+  .fakeVideoSection {
+    padding: 56px 0;
+    margin-top: 64px;
   }
 }
 
@@ -184,5 +320,102 @@
   .controls {
     left: 12px;
     bottom: 12px;
+  }
+
+  .fakeVideoSection {
+    margin: 48px 0;
+    padding: 48px 0;
+  }
+
+  .fakeVideoTitle {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  .fightNames {
+    font-size: 28px;
+    line-height: 30px;
+  }
+
+  .fakeVideoContent {
+    max-width: 375px;
+    width: 100%;
+    padding: 0 20px;
+    justify-items: center;
+  }
+
+  .fakeVideoMedia {
+    width: 335px;
+    max-width: 100%;
+    height: 191px;
+  }
+
+  .fakeVideoImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .fakeVideoTime {
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    width: calc(100% - 6px);
+  }
+
+  .runningLineSection {
+    display: none;
+  }
+}
+
+.runningLineSection {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  height: 328px;
+  position: relative;
+  overflow: hidden;
+  background-size: 100% 100%, 100% 100%, auto;
+  background-repeat: no-repeat, no-repeat, repeat;
+  background-position: center center, center bottom, center center;
+}
+
+.runningLineContent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.marquee {
+  width: 100%;
+  max-width: 1809px;
+  height: 56px;
+  overflow: hidden;
+  position: relative;
+}
+
+.marqueeInner {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marqueeScroll 20s linear infinite;
+  font-family: "Pressio", "Anton", "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 56px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }

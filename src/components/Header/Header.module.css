@@ -191,7 +191,7 @@
   margin: 12px 0 8px;
   width: 100%;
   height: 2px;
-  background: #44ff15;
+  background: #ffffff;
 }
 
 .mobileNav {
@@ -217,6 +217,7 @@
   background: transparent;
   border: none;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .mobileNavNumber {
@@ -241,6 +242,7 @@
   line-height: 24px;
   letter-spacing: 0.1em;
   color: #ffffff;
+  text-decoration: none;
 }
 
 .mobileLangRow {
