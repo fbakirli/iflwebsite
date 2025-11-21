@@ -1,0 +1,18 @@
+.button {
+    width: 405px;
+    height: 48px;
+    background-color: #ED2F22;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    border: none;
+    margin-top: auto;
+    
+  }
+  
+  .button:hover {
+    opacity: 0.9;
+  }
+  

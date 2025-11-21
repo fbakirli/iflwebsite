@@ -1,0 +1,86 @@
+.firstScreen {
+    width: 100%;
+    height: 820px;
+    background-size: 100% 820px;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 40px;
+    color: white;
+    align-items: center;
+
+    
+
+    background-image: linear-gradient(
+      94deg,
+      rgba(0, 0, 0, 0.32) 39.59%,
+      rgba(0, 0, 0, 0) 60.71%
+    );
+  }
+  
+  .contentLeft {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+  }
+  
+  .title {
+    font-family: 'Anton', sans-serif;
+    font-size: 72px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  
+  .primaryButton {
+    margin-top: 30px;
+    width: 200px;
+    height: 50px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .logos {
+    display: flex;
+    gap: 32px;
+    margin-top: 40px;
+  }
+  
+  .logos img {
+    height: 40px;
+  }
+  
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .firstScreen {
+      flex-direction: column;
+      height: auto;
+      padding: 20px;
+    }
+  
+    .contentLeft {
+      width: 100%;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .title {
+      font-size: 42px;
+    }
+  
+    .primaryButton {
+      width: 100%;
+    }
+  
+    .logos {
+      justify-content: center;
+    }
+  }
+  
