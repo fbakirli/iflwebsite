@@ -5,12 +5,18 @@ import WatchLiveButton from "../WatchLiveButton/WatchLiveButton";
 export default function VideoCard() {
   return (
     <div className={styles.videoCard}>
-      <img src={poster} alt="Poster" className={styles.poster} />
 
-      <p className={styles.subtitle}>LIGHTWEIGHT GRAND PRIX</p>
-      <h2 className={styles.title}>FINAL DAY OF THE GRAND PRIX</h2>
+  <img src={poster} className={styles.poster} />
 
-      <WatchLiveButton />
-    </div>
+  <p className={styles.subtitle}>LIGHTWEIGHT GRAND PRIX</p>
+
+  <h2 className={styles.title}>FINAL DAY OF THE<br/>GRAND PRIX</h2>
+
+  <div className={styles.buttonWrapper}>
+    <WatchLiveButton />
+  </div>
+
+  </div>
+
   );
 }

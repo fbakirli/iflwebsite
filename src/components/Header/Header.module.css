@@ -1,0 +1,130 @@
+.header {
+  width: 100%;
+  max-width: 1280px;   /* matches your Figma */
+  margin: 0 auto;       /* centers it properly */
+  padding: 0 80px;      /* pushes it 80px from left (Figma value) */
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+}
+
+  
+  /* Logo */
+  .logoWrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    height: 24px;
+    width: auto;
+  }
+  
+  /* Nav links */
+  .nav {
+    display: flex;
+    gap: 32px;
+  }
+  
+  .navItem {
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 24px;
+    opacity: 0.8;
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  .navItemActive {
+    opacity: 1;
+  }
+  
+  /* Right side: language + button */
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  /* Language circle button */
+  .langButton {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px dashed #ffffff;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.64;
+    cursor: pointer;
+  }
+  
+  .az{
+    width: 24px;
+    height: 24px;
+  }
+  
+  
+  /* Primary glassy button with green underline */
+  .primaryButton {
+    position: relative;
+    width: 198px;
+    height: 48px;
+    backdrop-filter: blur(32px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .primaryButtonInner {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    color: #ffffff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 24px;
+    cursor: pointer;
+  }
+  
+  .primaryUnderline {
+    position: absolute;
+    bottom: -2px; /* sits just under the 48px height */
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #44ff15;
+  }
+  
+  /* Simple responsive tweak */
+  @media (max-width: 900px) {
+    .nav {
+      gap: 16px;
+    }
+  
+    .header {
+      padding: 0 16px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .nav {
+      display: none; /* later we'll replace with burger menu */
+    }
+  
+    .header {
+      justify-content: space-between;
+    }
+  }
+  

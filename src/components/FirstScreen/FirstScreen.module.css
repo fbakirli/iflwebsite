@@ -1,86 +1,114 @@
 .firstScreen {
-    width: 100%;
-    height: 820px;
-    background-size: 100% 820px;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: relative;
-    display: flex;
-    justify-content: space-around;
-    padding: 0 40px;
-    color: white;
-    align-items: center;
+  width: 100%;
+  height: 820px;
+  min-height: 820px;
+  max-height: 820px;
 
-    
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 
-    background-image: linear-gradient(
-      94deg,
-      rgba(0, 0, 0, 0.32) 39.59%,
-      rgba(0, 0, 0, 0) 60.71%
-    );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 24px 80px 0;
+  box-sizing: border-box;
+  color: white;
+
+  background-image: linear-gradient(
+    94deg,
+    rgba(0, 0, 0, 0.32) 39.59%,
+    rgba(0, 0, 0, 0) 60.71%
+  ), var(--bg-image);
+}
+
+.firstScreen {
+  background-blend-mode: normal;
+}
+
+.heroRow {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+}
+
+/* Left column text */
+.contentLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 50%;
+}
+
+.title {
+  font-family: "Anton", sans-serif;
+  font-size: 72px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.primaryButton {
+  margin-top: 48px;
+  width: 200px;
+  height: 50px;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.heroRow {
+  position: relative; /* lets us position logos inside */
+}
+
+.logos {
+  position: absolute;
+  bottom: 40px;    /* adjust to match Figma */
+  left: 0;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .firstScreen {
+    height: auto;
+    max-height: none;
+    padding: 16px 16px 40px;
   }
-  
-  .contentLeft {
-    display: flex;
+
+  .heroRow {
     flex-direction: column;
-    justify-content: center;
-    width: 50%;
+    align-items: center;
+    margin-top: 24px;
+    gap: 24px;
   }
-  
+
+  .contentLeft {
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
   .title {
-    font-family: 'Anton', sans-serif;
-    font-size: 72px;
-    line-height: 1.1;
-    text-transform: uppercase;
-    margin: 0;
+    font-size: 42px;
   }
-  
+
   .primaryButton {
-    margin-top: 30px;
-    width: 200px;
-    height: 50px;
-    border: 2px solid white;
-    background: transparent;
-    color: white;
-    text-transform: uppercase;
-    cursor: pointer;
-    font-weight: bold;
+    width: 100%;
   }
-  
+
   .logos {
-    display: flex;
-    gap: 32px;
-    margin-top: 40px;
+    justify-content: center;
   }
-  
-  .logos img {
-    height: 40px;
-  }
-  
-  /* MOBILE */
-  @media (max-width: 768px) {
-    .firstScreen {
-      flex-direction: column;
-      height: auto;
-      padding: 20px;
-    }
-  
-    .contentLeft {
-      width: 100%;
-      align-items: center;
-      text-align: center;
-    }
-  
-    .title {
-      font-size: 42px;
-    }
-  
-    .primaryButton {
-      width: 100%;
-    }
-  
-    .logos {
-      justify-content: center;
-    }
-  }
-  
+}
