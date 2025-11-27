@@ -1,31 +1,20 @@
-import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import FirstScreen from "./components/FirstScreen/FirstScreen";
 import NewsPage from "./components/NewsPage/NewsPage";
 import NewsDetail from "./components/NewsDetail/NewsDetail";
 
 function App() {
-  const [activePage, setActivePage] = useState("home");
-
-  const handleNavigate = (page) => {
-    if (page === "news" || page === "home" || page === "newsDetail") {
-      setActivePage(page);
-    }
-  };
-
   return (
-    <div style={{ width: "100%", minHeight: "100vh", background: "#fff" }}>
-      {activePage === "news" && (
-        <NewsPage activePage={activePage} onNavigate={handleNavigate} />
-      )}
-
-      {activePage === "newsDetail" && (
-        <NewsDetail activePage={activePage} onNavigate={handleNavigate} />
-      )}
-
-      {activePage === "home" && (
-        <FirstScreen activePage={activePage} onNavigate={handleNavigate} />
-      )}
-    </div>
+    <Router>
+      <div style={{ width: "100%", minHeight: "100vh", background: "#fff" }}>
+        <Routes>
+          <Route path="/" element={<FirstScreen />} />
+          <Route path="/news" element={<NewsPage />} />
+          <Route path="/news/:id" element={<NewsDetail />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

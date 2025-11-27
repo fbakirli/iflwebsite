@@ -7,28 +7,24 @@ import instagram from "../../assets/instagram.svg";
 import facebook from "../../assets/Facebook.svg";
 import youtube from "../../assets/youtube.svg";
 import tiktok from "../../assets/tiktok.svg";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 const navItems = [
-  { id: "home", label: "Ana səhifə" },
-  { id: "news", label: "Xəbərlər" },
-  { id: "fighters", label: "Döyüşçülər" },
-  { id: "events", label: "Tədbirlər" },
-  { id: "shop", label: "Shop" },
+  { id: "home", label: "Ana səhifə", path: "/", end: true },
+  { id: "news", label: "Xəbərlər", path: "/news" },
+  { id: "fighters", label: "Döyüşçülər", path: "/fighters" },
+  { id: "events", label: "Tədbirlər", path: "/events" },
+  { id: "shop", label: "Shop", path: "/shop" },
 ];
 
-export default function Header({ activePage = "home", onNavigate }) {
+export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
 
-  const handleClick = (event, page) => {
-    event.preventDefault();
-    if (onNavigate) {
-      onNavigate(page);
-    }
-    setMenuOpen(false);
-  };
+  const handleNavClick = () => setMenuOpen(false);
 
   const headerClassName = `${styles.header} ${
-    activePage === "home" ? styles.headerTransparent : styles.headerSolid
+    location.pathname === "/" ? styles.headerTransparent : styles.headerSolid
   }`;
 
   return (
@@ -43,19 +39,17 @@ export default function Header({ activePage = "home", onNavigate }) {
           {/* Middle: Nav links */}
           <nav className={styles.nav}>
             {navItems.map((item) => (
-              <a
+              <NavLink
                 key={item.id}
-                href={`#${item.id}`}
-                onClick={(e) => handleClick(e, item.id)}
-                className={`${styles.navItem} ${
-                  activePage === item.id ||
-                  (item.id === "news" && activePage === "newsDetail")
-                    ? styles.navItemActive
-                    : ""
-                }`}
+                to={item.path}
+                end={item.end}
+                onClick={handleNavClick}
+                className={({ isActive }) =>
+                  `${styles.navItem} ${isActive ? styles.navItemActive : ""}`
+                }
               >
                 {item.label}
-              </a>
+              </NavLink>
             ))}
           </nav>
 
@@ -106,17 +100,23 @@ export default function Header({ activePage = "home", onNavigate }) {
           <ul className={styles.mobileNav} role="menu">
             {navItems.map((item, index) => (
               <li key={item.id} className={styles.mobileNavItemWrapper}>
-                <button
-                  type="button"
+                <Link
+                  to={item.path}
                   className={styles.mobileNavItem}
-                  onClick={(e) => handleClick(e, item.id)}
                   role="menuitem"
+                  onClick={handleNavClick}
+                  aria-current={
+                    location.pathname === item.path ||
+                    (item.path !== "/" && location.pathname.startsWith(item.path))
+                      ? "page"
+                      : undefined
+                  }
                 >
                   <span className={styles.mobileNavNumber}>
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <span className={styles.mobileNavLabel}>{item.label}</span>
-                </button>
+                </Link>
               </li>
             ))}
           </ul>

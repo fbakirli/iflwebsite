@@ -6,10 +6,10 @@ import dateFrame from "../../assets/date-frame.svg";
 import viewsFrame from "../../assets/views-frame.svg";
 import shareNews from "../../assets/share-news.svg";
 
-export default function NewsDetail({ activePage, onNavigate }) {
+export default function NewsDetail() {
   return (
     <div className={styles.page}>
-      <Header activePage={activePage} onNavigate={onNavigate} />
+      <Header />
 
       <main className={styles.content}>
         <h1 className={styles.heading}>

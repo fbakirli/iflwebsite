@@ -7,13 +7,13 @@ import azmmafLogo from "../../assets/AZMMAF.svg";
 import cbcLogo from "../../assets/CBC.svg";
 
 
-export default function FirstScreen({ activePage, onNavigate }) {
+export default function FirstScreen() {
   return (
     <div
       className={styles.firstScreen}
       style={{ "--bg-image": `url(${bgImage})` }}
     >
-      <Header activePage={activePage} onNavigate={onNavigate} />
+      <Header />
 
       <div className={styles.heroRow}>
         <div className={styles.heroContent}>

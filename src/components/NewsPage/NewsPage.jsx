@@ -1,4 +1,5 @@
 import styles from "./NewsPage.module.css";
+import { useNavigate } from "react-router-dom";
 import Header from "../Header/Header";
 import arrowIcon from "../../assets/arrow-right.svg";
 import newsImage1 from "../../assets/news1.jpg";
@@ -26,10 +27,12 @@ const newsItems = [
   },
 ];
 
-export default function NewsPage({ activePage, onNavigate }) {
+export default function NewsPage() {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.page}>
-      <Header activePage={activePage} onNavigate={onNavigate} />
+      <Header />
 
       <main className={styles.content}>
         <div className={styles.headerRow}>
@@ -46,7 +49,12 @@ export default function NewsPage({ activePage, onNavigate }) {
         <div className={styles.cards}>
           {newsItems.map((item) => (
             <article key={item.id} className={styles.card}>
-              <img src={item.image} alt={item.title} className={styles.image} />
+              <div
+                className={styles.image}
+                role="img"
+                aria-label={item.title}
+                style={{ backgroundImage: `url(${item.image})` }}
+              />
 
               <div className={styles.body}>
                 <span className={styles.category}>{item.category}</span>
@@ -57,7 +65,7 @@ export default function NewsPage({ activePage, onNavigate }) {
                 type="button"
                 className={styles.arrowButton}
                 onClick={
-                  item.id === 1 ? () => onNavigate?.("newsDetail") : undefined
+                  item.id === 1 ? () => navigate(`/news/${item.id}`) : undefined
                 }
                 aria-disabled={item.id !== 1}
                 aria-label={`Read more about ${item.title}`}
