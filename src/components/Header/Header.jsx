@@ -1,48 +1,144 @@
+import { useState } from "react";
 import styles from "./Header.module.css";
 import logo from "../../assets/ifl-logo.svg";
 import az from "../../assets/az-logo.svg";
 
+const navItems = [
+  { id: "home", label: "Ana səhifə" },
+  { id: "news", label: "Xəbərlər" },
+  { id: "fighters", label: "Döyüşçülər" },
+  { id: "events", label: "Tədbirlər" },
+  { id: "shop", label: "Shop" },
+];
 
-export default function Header() {
+export default function Header({ activePage = "home", onNavigate }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleClick = (event, page) => {
+    event.preventDefault();
+    if (onNavigate) {
+      onNavigate(page);
+    }
+    setMenuOpen(false);
+  };
+
+  const headerClassName = `${styles.header} ${
+    activePage === "home" ? styles.headerTransparent : styles.headerSolid
+  }`;
+
   return (
-    <header className={styles.header}>
-      {/* Left: Logo */}
-      <div className={styles.logoWrapper}>
-        <img src={logo} alt="IFL Logo" className={styles.logo} />
-      </div>
+    <>
+      <header className={headerClassName}>
+        <div className={styles.inner}>
+          {/* Left: Logo */}
+          <div className={styles.logoWrapper}>
+            <img src={logo} alt="IFL Logo" className={styles.logo} />
+          </div>
 
-      {/* Middle: Nav links */}
-      <nav className={styles.nav}>
-        <a href="#home" className={`${styles.navItem} ${styles.navItemActive}`}>
-          Ana səhifə
-        </a>
-        <a href="#news" className={styles.navItem}>
-          Xəbərlər
-        </a>
-        <a href="#fighters" className={styles.navItem}>
-          Döyüşçülər
-        </a>
-        <a href="#events" className={styles.navItem}>
-          Tədbirlər
-        </a>
-        <a href="#shop" className={styles.navItem}>
-          Shop
-        </a>
-      </nav>
+          {/* Middle: Nav links */}
+          <nav className={styles.nav}>
+            {navItems.map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={(e) => handleClick(e, item.id)}
+                className={`${styles.navItem} ${
+                  activePage === item.id ||
+                  (item.id === "news" && activePage === "newsDetail")
+                    ? styles.navItemActive
+                    : ""
+                }`}
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
 
-      {/* Right: Language + primary button */}
-      <div className={styles.actions}>
-        <button className={styles.langButton}>
-        <img src={az} alt="AZ lang" className={styles.az} />
-        </button>
+          {/* Right: Language + primary button */}
+          <div className={styles.actions}>
+            <button className={styles.langButton}>
+              <img src={az} alt="AZ lang" className={styles.az} />
+            </button>
 
-        <div className={styles.primaryButton}>
-          <button className={styles.primaryButtonInner}>
-            Kabinetə giriş
+            <div className={styles.primaryButton}>
+              <button className={styles.primaryButtonInner}>
+                Kabinetə giriş
+              </button>
+              <div className={styles.primaryUnderline} />
+            </div>
+          </div>
+
+          {/* Mobile burger */}
+          <button
+            className={styles.burger}
+            aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((prev) => !prev)}
+          >
+            <span className={styles.burgerLine} />
+            <span className={styles.burgerLine} />
+            <span className={styles.burgerLine} />
           </button>
-          <div className={styles.primaryUnderline} />
         </div>
-      </div>
-    </header>
+      </header>
+
+      {menuOpen && (
+        <div className={`${styles.mobileMenu} ${styles.mobileMenuOpen}`}>
+          <div className={styles.mobileTop}>
+            <img src={logo} alt="IFL Logo" className={styles.mobileLogo} />
+            <button
+              className={styles.closeButton}
+              aria-label="Close menu"
+              onClick={() => setMenuOpen(false)}
+            >
+              ×
+            </button>
+          </div>
+
+          <div className={styles.mobileLogin}>Kabinetə giriş</div>
+          <div className={styles.mobileDivider} />
+
+          <ul className={styles.mobileNav} role="menu">
+            {navItems.map((item, index) => (
+              <li key={item.id} className={styles.mobileNavItemWrapper}>
+                <button
+                  type="button"
+                  className={styles.mobileNavItem}
+                  onClick={(e) => handleClick(e, item.id)}
+                  role="menuitem"
+                >
+                  <span className={styles.mobileNavNumber}>
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className={styles.mobileNavLabel}>{item.label}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+
+          <div className={styles.mobileLangRow}>
+            <div className={styles.langBadge}>
+              <img src={az} alt="AZ" className={styles.langBadgeImg} />
+            </div>
+            <div className={`${styles.langBadge} ${styles.langBadgeOutline}`}>
+              EN
+            </div>
+          </div>
+
+          <div className={styles.mobileSocial}>
+            <span className={styles.socialTitle}>Sosial media</span>
+            <div className={styles.socialIcons}>
+              {["IG", "FB", "YT", "TT"].map((label) => (
+                <span key={label} className={styles.socialIcon}>
+                  {label}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <p className={styles.mobileFooter}>2021 International Fighting League</p>
+        </div>
+      )}
+    </>
   );
 }

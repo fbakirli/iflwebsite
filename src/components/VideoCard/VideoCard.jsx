@@ -6,14 +6,16 @@ export default function VideoCard() {
   return (
     <div className={styles.videoCard}>
 
-  <img src={poster} className={styles.poster} />
+  <img src={poster} className={styles.poster} alt="Event poster" />
 
-  <p className={styles.subtitle}>LIGHTWEIGHT GRAND PRIX</p>
+  <div className={styles.info}>
+    <p className={styles.subtitle}>LIGHTWEIGHT GRAND PRIX</p>
 
-  <h2 className={styles.title}>FINAL DAY OF THE<br/>GRAND PRIX</h2>
+    <h2 className={styles.title}>FINAL DAY OF THE<br/>GRAND PRIX</h2>
 
-  <div className={styles.buttonWrapper}>
-    <WatchLiveButton />
+    <div className={styles.buttonWrapper}>
+      <WatchLiveButton />
+    </div>
   </div>
 
   </div>

@@ -1,0 +1,188 @@
+.page {
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+  color: #111111;
+}
+
+.content {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 72px 20px 120px;
+  box-sizing: border-box;
+}
+
+.heading {
+  margin: 72px 0 24px;
+  font-family: "Pressio", "Anton", "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 72px;
+  line-height: 72px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.divider {
+  width: 624px;
+  max-width: 100%;
+  border-bottom: 2px solid #44ff15;
+  margin-bottom: 24px;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.metaIcon {
+  height: 36px;
+  width: auto;
+}
+
+.shareIcon {
+  height: 36px;
+  width: auto;
+}
+
+.body {
+  max-width: 624px;
+  font-family: "Helvetica Now Display", "Montserrat", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 56px;
+}
+
+.body p {
+  margin: 0;
+}
+
+.media {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mediaHeader {
+  padding-left: 16px;
+}
+
+.mediaTitle {
+  margin: 0;
+  font-family: "Pressio", "Anton", "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 40px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.mediaFrame {
+  position: relative;
+}
+
+.heroImage {
+  width: 100%;
+  max-width: 1280px;
+  height: auto;
+  display: block;
+}
+
+.controls {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  display: flex;
+  gap: 12px;
+}
+
+.controlButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+.controlIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.controlIconLeft {
+  width: 24px;
+  height: 24px;
+  transform: rotate(180deg);
+}
+
+@media (max-width: 900px) {
+  .heading {
+    font-size: 54px;
+    line-height: 56px;
+  }
+
+  .divider {
+    width: 100%;
+  }
+
+  .content {
+    padding: 56px 16px 96px;
+  }
+
+  .body {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .heading {
+    font-size: 42px;
+    line-height: 44px;
+    letter-spacing: 0.02em;
+    margin: 48px 0 16px;
+  }
+
+  .metaRow {
+    gap: 12px;
+  }
+
+  .share {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .shareText {
+    font-size: 12px;
+  }
+
+  .body {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .mediaHeader {
+    padding-left: 0;
+  }
+
+  .mediaTitle {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .controls {
+    left: 12px;
+    bottom: 12px;
+  }
+}

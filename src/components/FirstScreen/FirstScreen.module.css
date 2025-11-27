@@ -1,8 +1,6 @@
 .firstScreen {
   width: 100%;
-  height: 820px;
   min-height: 820px;
-  max-height: 820px;
 
   background-position: center;
   background-size: cover;
@@ -12,7 +10,7 @@
   flex-direction: column;
   align-items: center;
 
-  padding: 24px 80px 0;
+  padding: 24px 40px 32px;
   box-sizing: border-box;
   color: white;
 
@@ -29,19 +27,29 @@
 
 .heroRow {
   width: 100%;
+  max-width: 1280px;
   flex: 1;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-top: 40px;
+  align-items: flex-start;
+  gap: 32px;
+  margin-top: 32px;
 }
 
-/* Left column text */
+.heroContent {
+  position: relative;
+  flex: 1;
+  min-height: 640px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .contentLeft {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 50%;
+  max-width: 560px;
 }
 
 .title {
@@ -49,6 +57,7 @@
   font-size: 72px;
   line-height: 1.1;
   text-transform: uppercase;
+  letter-spacing: 0.02em;
   margin: 0;
 }
 
@@ -64,17 +73,26 @@
   font-weight: bold;
 }
 
-.heroRow {
-  position: relative; /* lets us position logos inside */
-}
-
 .logos {
   position: absolute;
-  bottom: 40px;    /* adjust to match Figma */
+  bottom: 40px;
   left: 0;
   display: flex;
-  gap: 32px;
+  gap: 24px;
   align-items: center;
+}
+
+.smgLogo,
+.azmmafLogo,
+.cbcLogo {
+  height: 30px;
+  width: auto;
+}
+
+.cardWrapper {
+  display: flex;
+  justify-content: flex-end;
+  flex-shrink: 0;
 }
 
 
@@ -82,33 +100,57 @@
 /* MOBILE */
 @media (max-width: 768px) {
   .firstScreen {
-    height: auto;
+    min-height: auto;
     max-height: none;
-    padding: 16px 16px 40px;
+    height: auto;
+    padding: 44px 20px 40px;
   }
 
   .heroRow {
+    max-width: 375px;
     flex-direction: column;
-    align-items: center;
-    margin-top: 24px;
+    align-items: stretch;
+    margin-top: 16px;
     gap: 24px;
   }
 
+  .heroContent {
+    min-height: 360px;
+    width: 335px;
+    padding: 20px 16px 80px;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+
   .contentLeft {
-    max-width: 100%;
-    align-items: center;
-    text-align: center;
+    max-width: 335px;
+    align-items: flex-start;
+    text-align: left;
   }
 
   .title {
-    font-size: 42px;
+    font-size: 44px;
+    line-height: 48px;
+    letter-spacing: 0.02em;
   }
 
   .primaryButton {
-    width: 100%;
+    width: 167px;
+    height: 48px;
+    margin-top: 16px;
   }
 
   .logos {
+    position: absolute;
+    left: 16px;
+    bottom: 20px;
+    gap: 16px;
+  }
+
+  .cardWrapper {
+    width: 100%;
+    display: flex;
     justify-content: center;
+    margin-top: 16px;
   }
 }

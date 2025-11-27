@@ -7,34 +7,37 @@ import azmmafLogo from "../../assets/AZMMAF.svg";
 import cbcLogo from "../../assets/CBC.svg";
 
 
-export default function FirstScreen() {
+export default function FirstScreen({ activePage, onNavigate }) {
   return (
     <div
       className={styles.firstScreen}
-      style={{ backgroundImage: `url(${bgImage})` }}
+      style={{ "--bg-image": `url(${bgImage})` }}
     >
-      <Header />
+      <Header activePage={activePage} onNavigate={onNavigate} />
 
       <div className={styles.heroRow}>
-        {/* LEFT SIDE */}
-        <div className={styles.contentLeft}>
-          <h1 className={styles.title}>
-            WHERE THERE IS UNITY <br />
-            THERE IS ALWAYS <br />
-            VICTORY
-          </h1>
+        <div className={styles.heroContent}>
+          {/* LEFT SIDE */}
+          <div className={styles.contentLeft}>
+            <h1 className={styles.title}>
+              WHERE THERE IS UNITY <br />
+              THERE IS ALWAYS <br />
+              VICTORY
+            </h1>
 
-          <button className={styles.primaryButton}>DAHA ƏTRAFLI</button>
+            <button className={styles.primaryButton}>DAHA ƏTRAFLI</button>
+          </div>
+
+          {/* BOTTOM LOGOS */}
+          <div className={styles.logos}>
+            <img src={smgLogo} alt="SMG" className={styles.smgLogo} />
+            <img src={azmmafLogo} alt="AZMMAF" className={styles.azmmafLogo} />
+            <img src={cbcLogo} alt="CBC" className={styles.cbcLogo} />
+          </div>
         </div>
 
-        {/* RIGHT SIDE */}
-        <VideoCard />
-
-        {/* BOTTOM LOGOS */}
-        <div className={styles.logos}>
-          <img src={smgLogo} alt="SMG" className={styles.smgLogo} />
-          <img src={azmmafLogo} alt="AZMMAF" className={styles.azmmafLogo} />
-          <img src={cbcLogo} alt="CBC" className={styles.cbcLogo} />
+        <div className={styles.cardWrapper}>
+          <VideoCard />
         </div>
       </div>
     </div>

@@ -1,130 +1,353 @@
 .header {
   width: 100%;
-  max-width: 1280px;   /* matches your Figma */
-  margin: 0 auto;       /* centers it properly */
-  padding: 0 80px;      /* pushes it 80px from left (Figma value) */
-  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
 
+.headerSolid {
+  background: #000000;
+}
+
+.headerTransparent {
+  background: transparent;
+}
+
+.inner {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 48px;
+  height: 80px;
+  padding: 0 20px;
 }
 
-  
-  /* Logo */
-  .logoWrapper {
-    display: flex;
-    align-items: center;
+.logoWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 24px;
+  width: auto;
+}
+
+.nav {
+  display: flex;
+  gap: 32px;
+}
+
+.navItem {
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 24px;
+  opacity: 0.8;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.navItem:hover {
+  opacity: 1;
+}
+
+.navItemActive {
+  opacity: 1;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.langButton {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px dashed #ffffff;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.64;
+  cursor: pointer;
+}
+
+.az {
+  width: 24px;
+  height: 24px;
+}
+
+.primaryButton {
+  position: relative;
+  width: 198px;
+  height: 48px;
+  backdrop-filter: blur(32px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.primaryButtonInner {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.primaryUnderline {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #44ff15;
+}
+
+.burger {
+  display: none;
+  width: 40px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-left: 16px;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.burgerLine {
+  display: block;
+  height: 4px;
+  width: 100%;
+  border-radius: 4px;
+  background: #ffffff;
+}
+
+.mobileMenu {
+  position: fixed;
+  inset: 0;
+  background: #000000;
+  color: #ffffff;
+  padding: 24px 20px 40px;
+  box-sizing: border-box;
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 999;
+  overflow-y: auto;
+}
+
+.mobileMenuOpen {
+  display: flex;
+}
+
+.mobileTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobileLogo {
+  height: 24px;
+  width: auto;
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.mobileLogin {
+  text-align: center;
+  font-family: "Helvetica Now Display", "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 24px;
+}
+
+.mobileDivider {
+  margin: 12px 0 8px;
+  width: 100%;
+  height: 2px;
+  background: #44ff15;
+}
+
+.mobileNav {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobileNavItemWrapper {
+  width: 100%;
+}
+
+.mobileNavItem {
+  width: 168px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.mobileNavNumber {
+  width: 18px;
+  height: 20px;
+  font-family: "Pressio", "Anton", "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #bbc7cd;
+  text-align: center;
+}
+
+.mobileNavLabel {
+  width: 134px;
+  height: 24px;
+  font-family: "Helvetica Now Display", "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+}
+
+.mobileLangRow {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.langBadge {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1b1b1b;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #444b52;
+  color: #ffffff;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.langBadgeImg {
+  width: 24px;
+  height: 24px;
+}
+
+.langBadgeOutline {
+  border: 1px dashed #ffffff;
+  background: transparent;
+}
+
+.mobileSocial {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.socialTitle {
+  font-family: "Helvetica Now Display", "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.06em;
+  color: #d0d4d9;
+}
+
+.socialIcons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.socialIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #41474c;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Helvetica Now Display", "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+}
+
+.mobileFooter {
+  margin: 24px 0 0;
+  font-family: "Helvetica Now Display", "Montserrat", sans-serif;
+  font-size: 12px;
+  line-height: 20px;
+  color: #d0d4d9;
+}
+
+@media (min-width: 769px) {
+  .mobileMenuOpen {
+    display: none;
   }
-  
-  .logo {
-    height: 24px;
-    width: auto;
-  }
-  
-  /* Nav links */
+}
+@media (max-width: 900px) {
   .nav {
-    display: flex;
-    gap: 32px;
-  }
-  
-  .navItem {
-    font-family: "Montserrat", sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    line-height: 24px;
-    opacity: 0.8;
-    color: #ffffff;
-    text-decoration: none;
-  }
-  
-  .navItemActive {
-    opacity: 1;
-  }
-  
-  /* Right side: language + button */
-  .actions {
-    display: flex;
-    align-items: center;
     gap: 16px;
   }
-  
-  /* Language circle button */
-  .langButton {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    border: 1px dashed #ffffff;
-    background: transparent;
+
+  .inner {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    padding: 0 12px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .actions {
+    display: none;
+  }
+
+  .burger {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.64;
-    cursor: pointer;
   }
-  
-  .az{
-    width: 24px;
-    height: 24px;
-  }
-  
-  
-  /* Primary glassy button with green underline */
-  .primaryButton {
-    position: relative;
-    width: 198px;
-    height: 48px;
-    backdrop-filter: blur(32px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .primaryButtonInner {
-    width: 100%;
-    height: 100%;
-    border: none;
-    background: transparent;
-    color: #ffffff;
-    font-family: "Montserrat", sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    line-height: 24px;
-    cursor: pointer;
-  }
-  
-  .primaryUnderline {
-    position: absolute;
-    bottom: -2px; /* sits just under the 48px height */
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: #44ff15;
-  }
-  
-  /* Simple responsive tweak */
-  @media (max-width: 900px) {
-    .nav {
-      gap: 16px;
-    }
-  
-    .header {
-      padding: 0 16px;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .nav {
-      display: none; /* later we'll replace with burger menu */
-    }
-  
-    .header {
-      justify-content: space-between;
-    }
-  }
-  
+}
