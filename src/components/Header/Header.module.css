@@ -304,11 +304,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: "Helvetica Now Display", "Montserrat", sans-serif;
-  font-weight: 700;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  color: #ffffff;
+}
+
+.socialIconImg {
+  width: 20px;
+  height: 20px;
 }
 
 .mobileFooter {

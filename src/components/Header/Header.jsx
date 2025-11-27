@@ -2,6 +2,11 @@ import { useState } from "react";
 import styles from "./Header.module.css";
 import logo from "../../assets/ifl-logo.svg";
 import az from "../../assets/az-logo.svg";
+import uk from "../../assets/uk.svg";
+import instagram from "../../assets/instagram.svg";
+import facebook from "../../assets/Facebook.svg";
+import youtube from "../../assets/youtube.svg";
+import tiktok from "../../assets/tiktok.svg";
 
 const navItems = [
   { id: "home", label: "Ana səhifə" },
@@ -121,18 +126,25 @@ export default function Header({ activePage = "home", onNavigate }) {
               <img src={az} alt="AZ" className={styles.langBadgeImg} />
             </div>
             <div className={`${styles.langBadge} ${styles.langBadgeOutline}`}>
-              EN
+              <img src={uk} alt="UK" className={styles.langBadgeImg} />
             </div>
           </div>
 
           <div className={styles.mobileSocial}>
             <span className={styles.socialTitle}>Sosial media</span>
             <div className={styles.socialIcons}>
-              {["IG", "FB", "YT", "TT"].map((label) => (
-                <span key={label} className={styles.socialIcon}>
-                  {label}
-                </span>
-              ))}
+              <span className={styles.socialIcon}>
+                <img src={instagram} alt="Instagram" className={styles.socialIconImg} />
+              </span>
+              <span className={styles.socialIcon}>
+                <img src={facebook} alt="Facebook" className={styles.socialIconImg} />
+              </span>
+              <span className={styles.socialIcon}>
+                <img src={youtube} alt="YouTube" className={styles.socialIconImg} />
+              </span>
+              <span className={styles.socialIcon}>
+                <img src={tiktok} alt="TikTok" className={styles.socialIconImg} />
+              </span>
             </div>
           </div>
 
