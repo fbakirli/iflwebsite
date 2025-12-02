@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./NewsPage.module.css";
-import Header from "../Header/Header";
 import UnderlineButton from "../UnderlineButton/UnderlineButton";
 import arrowIcon from "../../assets/arrow-right.svg";
 import newsImage1 from "../../assets/news1.jpg";
@@ -28,23 +27,14 @@ const newsItems = [
   },
 ];
 
-export default function NewsPage({ showHeader = true }) {
+export default function NewsPage() {
   const navigate = useNavigate();
-  const pageClassName = `${styles.page} ${!showHeader ? styles.pageEmbedded : ""}`;
-  const contentClassName = `${styles.content} ${
-    !showHeader ? styles.contentEmbedded : ""
-  }`;
-  const headingClassName = `${styles.heading} ${
-    !showHeader ? styles.headingEmbedded : ""
-  }`;
 
   return (
-    <div className={pageClassName}>
-      {showHeader && <Header />}
-
-      <main className={contentClassName}>
+    <div className={styles.page}>
+      <main className={`${styles.content} ${styles.contentEmbedded}`}>
         <div className={styles.headerRow}>
-          <h1 className={headingClassName}>News</h1>
+          <h1 className={`${styles.heading} ${styles.headingEmbedded}`}>News</h1>
           <div className={styles.actions}>
             <UnderlineButton label="daha Ətraflı" />
           </div>

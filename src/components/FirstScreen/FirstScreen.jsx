@@ -1,6 +1,5 @@
 import styles from "./FirstScreen.module.css";
 import bgImage from "../../assets/bg-rectangle118.png";
-import Header from "../Header/Header";
 import VideoCard from "../VideoCard/VideoCard";
 import smgLogo from "../../assets/SMG.svg";
 import azmmafLogo from "../../assets/AZMMAF.svg";
@@ -13,8 +12,6 @@ export default function FirstScreen() {
       className={styles.firstScreen}
       style={{ "--bg-image": `url(${bgImage})` }}
     >
-      <Header />
-
       <div className={styles.heroRow}>
         <div className={styles.heroContent}>
           {/* LEFT SIDE */}

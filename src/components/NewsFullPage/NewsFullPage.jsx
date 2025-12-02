@@ -1,6 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 import styles from "../NewsPage/NewsPage.module.css";
 import arrowIcon from "../../assets/arrow-right.svg";
 import newsImage1 from "../../assets/news1.jpg";
@@ -33,8 +31,6 @@ export default function NewsFullPage() {
 
   return (
     <div className={styles.page}>
-      <Header />
-
       <main className={styles.content}>
         <div className={styles.headerRow}>
           <h1 className={styles.heading}>Latest News</h1>
@@ -48,8 +44,6 @@ export default function NewsFullPage() {
 
         <FeatureRow image={newsImage2} reversed />
       </main>
-
-      <Footer />
     </div>
   );
 }

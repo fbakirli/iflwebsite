@@ -1,8 +1,6 @@
 import { useState } from "react";
 import styles from "./NewsDetail.module.css";
-import Header from "../Header/Header";
 import NewsPage from "../NewsPage/NewsPage";
-import Footer from "../Footer/Footer";
 import arrowIcon from "../../assets/arrow-right.svg";
 import heroImage from "../../assets/news1.jpg";
 import newsImage2 from "../../assets/news2.jpg";
@@ -70,8 +68,6 @@ function MediaCarousel({ slides }) {
 export default function NewsDetail() {
   return (
     <div className={styles.page}>
-      <Header />
-
       <main className={styles.content}>
         <h1 className={styles.heading}>
           IFL Qran-prinin ilk turunun çəki mərasimi baş tutub.
@@ -149,7 +145,7 @@ export default function NewsDetail() {
           </div>
         </section>
 
-        <NewsPage showHeader={false} />
+        <NewsPage />
 
         <section
           className={styles.runningLineSection}
@@ -165,8 +161,6 @@ export default function NewsDetail() {
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 }

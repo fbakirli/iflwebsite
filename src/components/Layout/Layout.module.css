@@ -1,0 +1,11 @@
+.layout {
+  width: 100%;
+  min-height: 100vh;
+  background: #000;
+  color: #111;
+}
+
+.main {
+  width: 100%;
+  min-height: calc(100vh - 160px);
+}
