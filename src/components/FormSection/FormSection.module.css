@@ -9,7 +9,7 @@
   background-color: #000000;
   background-image: url("../../assets/formbg.jpeg");
   background-size: cover;
-  background-position: center;
+  background-position: center bottom;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
@@ -22,7 +22,9 @@
 .formOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.72)),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.62) 18%, rgba(0, 0, 0, 0.62) 82%, rgba(0, 0, 0, 0.85) 100%);
   z-index: 0;
 }
 
