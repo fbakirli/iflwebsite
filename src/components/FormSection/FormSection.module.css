@@ -36,18 +36,19 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
   z-index: 1;
 }
 
 .formTitle {
-  margin: 0;
+  margin: 12px 0 0;
   font-family: "Pressio", "Anton", "Montserrat", sans-serif;
   font-weight: 700;
-  font-size: 88px;
+  font-size: 70px;
   line-height: 89px;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.08em;
+  word-spacing: 0.04em;
   text-transform: uppercase;
   max-width: 460px;
 }
@@ -90,12 +91,25 @@
   gap: 16px;
 }
 
+.selectField {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 16px) center;
+  background-size: 24px 24px;
+  padding-right: 52px;
+  background-color: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.82);
+}
+
 .field {
   display: flex;
   flex-direction: column;
   gap: 8px;
   font-family: "Helvetica Now Display", "Montserrat", sans-serif;
   color: #ffffff;
+  position: relative;
 }
 
 .fieldLabel {
@@ -121,13 +135,18 @@
   color: #ff4d4f;
 }
 
+.fieldRequired,
+.selectRequired {
+  display: none;
+}
+
 .fieldInput {
   width: 100%;
   height: 80px;
   border: 1px solid rgba(255, 255, 255, 0.32);
   background: rgba(255, 255, 255, 0.06);
   color: #ffffff;
-  padding: 20px 16px;
+  padding: 20px 16px 20px 20px;
   box-sizing: border-box;
   font-size: 16px;
   line-height: 24px;
@@ -138,16 +157,35 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-.selectFake {
-  display: flex;
+.fieldOverlay {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 6px;
+  font-family: "Helvetica Now Display", "Montserrat", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 0.7);
+  pointer-events: none;
 }
 
-.selectIcon {
-  width: 24px;
-  height: 24px;
-  opacity: 0.8;
+.selectOverlay {
+  left: 20px;
+}
+
+.overlayStar {
+  color: #ff4d4f;
+}
+
+.selectField:required:invalid {
+  color: transparent;
+}
+
+.selectField option {
+  color: #111111;
 }
 
 .formFooter {

@@ -1,8 +1,16 @@
+import { useState } from "react";
 import styles from "./FormSection.module.css";
 import downButton from "../../assets/downbutton.svg";
 import formBackground from "../../assets/formbg.jpeg";
 
 export default function FormSection() {
+  const [name, setName] = useState("");
+  const [dob, setDob] = useState("");
+  const [kg, setKg] = useState("");
+  const [experience, setExperience] = useState("");
+  const [type, setType] = useState("");
+  const [mobile, setMobile] = useState("");
+
   return (
     <section
       className={styles.formSection}
@@ -24,58 +32,122 @@ export default function FormSection() {
 
           <div className={styles.formGrid}>
             <label className={styles.field}>
-              <span className={`${styles.fieldLabel} ${styles.visuallyHidden}`}>
-                Name &amp; Surname *
-              </span>
+              {!name && (
+                <span className={styles.fieldOverlay}>
+                  Name &amp; Surname <span className={styles.overlayStar}>*</span>
+                </span>
+              )}
               <input
                 type="text"
                 className={styles.fieldInput}
-                placeholder="Name & Surname *"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                aria-required="true"
               />
             </label>
             <label className={styles.field}>
-              <span className={`${styles.fieldLabel} ${styles.visuallyHidden}`}>
-                Date of birth *
-              </span>
+              {!dob && (
+                <span className={styles.fieldOverlay}>
+                  Date of birth <span className={styles.overlayStar}>*</span>
+                </span>
+              )}
               <input
                 type="text"
                 className={styles.fieldInput}
-                placeholder="Date of birth *"
+                value={dob}
+                onChange={(e) => setDob(e.target.value)}
+                aria-required="true"
               />
             </label>
 
             <label className={styles.field}>
-              <span className={`${styles.fieldLabel} ${styles.visuallyHidden}`}>KG *</span>
-              <button type="button" className={`${styles.fieldInput} ${styles.selectFake}`}>
-                KG <span className={styles.required}>*</span>
-                <img src={downButton} alt="" aria-hidden className={styles.selectIcon} />
-              </button>
+              {!kg && (
+                <span className={`${styles.fieldOverlay} ${styles.selectOverlay}`}>
+                  KG <span className={styles.overlayStar}>*</span>
+                </span>
+              )}
+              <select
+                className={`${styles.fieldInput} ${styles.selectField}`}
+                value={kg}
+                style={{
+                  backgroundImage: `url(${downButton})`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "calc(100% - 16px) center",
+                  backgroundSize: "24px 24px",
+                }}
+                aria-required="true"
+                required
+                onChange={(e) => setKg(e.target.value)}
+              >
+                <option value="" disabled hidden>
+                  KG *
+                </option>
+                <option value="text">text</option>
+              </select>
             </label>
             <label className={styles.field}>
-              <span className={`${styles.fieldLabel} ${styles.visuallyHidden}`}>
-                Experience *
-              </span>
-              <button type="button" className={`${styles.fieldInput} ${styles.selectFake}`}>
-                Experience <span className={styles.required}>*</span>
-                <img src={downButton} alt="" aria-hidden className={styles.selectIcon} />
-              </button>
+              {!experience && (
+                <span className={`${styles.fieldOverlay} ${styles.selectOverlay}`}>
+                  Experience <span className={styles.overlayStar}>*</span>
+                </span>
+              )}
+              <select
+                className={`${styles.fieldInput} ${styles.selectField}`}
+                value={experience}
+                style={{
+                  backgroundImage: `url(${downButton})`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "calc(100% - 16px) center",
+                  backgroundSize: "24px 24px",
+                }}
+                aria-required="true"
+                required
+                onChange={(e) => setExperience(e.target.value)}
+              >
+                <option value="" disabled hidden>
+                  Experience *
+                </option>
+                <option value="text">text</option>
+              </select>
             </label>
 
             <label className={styles.field}>
-              <span className={`${styles.fieldLabel} ${styles.visuallyHidden}`}>Type *</span>
-              <button type="button" className={`${styles.fieldInput} ${styles.selectFake}`}>
-                Type <span className={styles.required}>*</span>
-                <img src={downButton} alt="" aria-hidden className={styles.selectIcon} />
-              </button>
+              {!type && (
+                <span className={`${styles.fieldOverlay} ${styles.selectOverlay}`}>
+                  Type <span className={styles.overlayStar}>*</span>
+                </span>
+              )}
+              <select
+                className={`${styles.fieldInput} ${styles.selectField}`}
+                value={type}
+                style={{
+                  backgroundImage: `url(${downButton})`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "calc(100% - 16px) center",
+                  backgroundSize: "24px 24px",
+                }}
+                aria-required="true"
+                required
+                onChange={(e) => setType(e.target.value)}
+              >
+                <option value="" disabled hidden>
+                  Type *
+                </option>
+                <option value="text">text</option>
+              </select>
             </label>
             <label className={styles.field}>
-              <span className={`${styles.fieldLabel} ${styles.visuallyHidden}`}>
-                Mobile Nömrə *
-              </span>
+              {!mobile && (
+                <span className={styles.fieldOverlay}>
+                  Mobil Nömrə <span className={styles.overlayStar}>*</span>
+                </span>
+              )}
               <input
                 type="text"
                 className={styles.fieldInput}
-                placeholder="Mobile Nömrə *"
+                value={mobile}
+                onChange={(e) => setMobile(e.target.value)}
+                aria-required="true"
               />
             </label>
           </div>

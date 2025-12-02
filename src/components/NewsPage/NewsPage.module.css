@@ -45,7 +45,9 @@
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  column-gap: 32px;
+  row-gap: 40px;
+  margin: 24px 0 96px;
 }
 
 .card {
@@ -201,10 +203,11 @@
 
   .cards {
     display: flex;
-    gap: 16px;
+    gap: 20px;
     overflow-x: auto;
     padding-bottom: 12px;
     scroll-snap-type: x mandatory;
+    margin: 16px 0 40px;
   }
 
   .cards::-webkit-scrollbar {
